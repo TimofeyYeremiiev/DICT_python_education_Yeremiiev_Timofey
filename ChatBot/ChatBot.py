@@ -1,2 +1,5 @@
 print("Hello! My name is Potato!")
 print("I was created in 2022.")
+print("Please, remind me your name.")
+a = input("> ")
+print(f"What a great name you have, {a}!")
