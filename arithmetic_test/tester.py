@@ -73,10 +73,11 @@ class Tester:
                     2. Тот же что и первый, только может появиться еще и квадрат\n     
             """)
             level = input(">")
-            if not level.isnumeric():
+            try:
+                level = int(level)
+            except ValueError:
                 print("Числом")
                 continue
-            level = int(level)
             if not (0 < level < 3):
                 print("Существующий пункт")
                 continue
