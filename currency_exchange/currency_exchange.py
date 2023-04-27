@@ -1,4 +1,6 @@
 """Currency exchanger module - хорошо делает запросы и умножение. Ну и обмен валют"""
+import json
+
 import requests
 
 
@@ -41,7 +43,7 @@ class CurrencyExchanger:
             variable = input("Введите количество валюты\n")
             try:
                 return float(variable)
-            except:
+            except ValueError:
                 print("Не число")
 
     def make_request(self, valute_name: str):
@@ -68,7 +70,7 @@ class CurrencyExchanger:
             try:
                 if self.valute_1 not in self.cache:
                     self.make_request(self.valute_1)
-            except:
+            except json.JSONDecodeError | requests.RequestException:
                 print("Ошибка получения курса. Или сайт недоступен,"
                       " или кто то ввел неправильно название!")
                 continue
